@@ -10,6 +10,7 @@ export const createDefaultFireDevice = (overrides: Partial<FireDevice> = {}): Fi
   install_date: "2026-06-11T09:00:00Z" as never,
   status: "IN_PROGRESS" as never,
   next_maintenance_at: "2026-06-11T09:00:00Z" as never,
+  qualified_part_count: 0 as never,
   ...overrides
 });
 

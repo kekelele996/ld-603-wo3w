@@ -1,1 +1,1 @@
-ERROR_MESSAGES = {"AUTH_REQUIRED": "missing token", "RBAC_DENIED": "role denied", "VALIDATION_FAILED": "invalid payload"}
+ERROR_MESSAGES = {"AUTH_REQUIRED": "missing token", "RBAC_DENIED": "role denied", "VALIDATION_FAILED": "invalid payload", "TICKET_NOT_FOUND": "整改单不存在", "TICKET_ALREADY_CLOSED": "回执对账确认前整改单不得关单", "RECEIPT_NOT_FOUND": "维保回执不存在", "RECEIPT_NOT_REVIEWABLE": "当前回执状态不允许物业主管复核", "RECEIPT_SUBMIT_FAILED": "回执报送失败，需按整单重试"}

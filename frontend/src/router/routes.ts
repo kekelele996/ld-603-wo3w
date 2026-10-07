@@ -16,7 +16,15 @@ export const routes = [
     "route": "/hazards"
   },
   {
+    "name": "回执对账",
+    "route": "/reconciliation"
+  },
+  {
     "name": "合规报表",
     "route": "/reports"
+  },
+  {
+    "name": "审计日志",
+    "route": "/audit"
   }
 ] as const;

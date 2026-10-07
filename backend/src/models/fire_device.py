@@ -9,3 +9,4 @@ class FireDevice(BaseModel):
     install_date: str
     status: str
     next_maintenance_at: str
+    qualified_part_count: int | float = 0

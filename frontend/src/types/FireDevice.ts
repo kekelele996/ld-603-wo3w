@@ -8,4 +8,6 @@ export interface FireDevice {
   install_date: string;
   status: string;
   next_maintenance_at: string;
+  // 回执对账确认后由物业主管复核写回的合格部件累计数
+  qualified_part_count: number;
 }
