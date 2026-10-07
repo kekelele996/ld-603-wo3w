@@ -16,6 +16,10 @@ export const routes = [
     "route": "/hazards"
   },
   {
+    "name": "维保回执对账",
+    "route": "/reconcile"
+  },
+  {
     "name": "合规报表",
     "route": "/reports"
   }

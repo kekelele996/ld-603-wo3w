@@ -8,4 +8,6 @@ export interface FireDevice {
   install_date: string;
   status: string;
   next_maintenance_at: string;
+  qualified_component_count: number;
+  last_writeback_receipt_id: number | null;
 }

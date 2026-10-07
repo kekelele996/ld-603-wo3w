@@ -1,0 +1,1 @@
+UserRole = ["INSPECTOR", "VENDOR", "SUPERVISOR", "AUDITOR", "ADMIN"]

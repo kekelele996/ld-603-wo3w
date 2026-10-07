@@ -9,3 +9,5 @@ class FireDevice(BaseModel):
     install_date: str
     status: str
     next_maintenance_at: str
+    qualified_component_count: int = 0
+    last_writeback_receipt_id: int | float | None = None

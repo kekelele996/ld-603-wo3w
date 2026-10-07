@@ -17,7 +17,9 @@ CREATE TABLE IF NOT EXISTS fire_device (
   location_desc TEXT,
   install_date TEXT,
   status TEXT,
-  next_maintenance_at TEXT
+  next_maintenance_at TEXT,
+  qualified_component_count INTEGER DEFAULT 0,
+  last_writeback_receipt_id TEXT
 );
 
 CREATE TABLE IF NOT EXISTS inspection_task (
@@ -50,7 +52,49 @@ CREATE TABLE IF NOT EXISTS hazard_ticket (
   deadline TEXT,
   rectify_status TEXT,
   rectify_note TEXT,
-  closed_at TEXT
+  closed_at TEXT,
+  last_receipt_id TEXT
+);
+
+-- 整改单登记的隐患条目：回执更换部件/照片按这些条目对账
+CREATE TABLE IF NOT EXISTS hazard_registered_item (
+  id INTEGER PRIMARY KEY,
+  hazard_ticket_id INTEGER,
+  item_code TEXT,
+  part_name TEXT,
+  expected_quantity INTEGER DEFAULT 1,
+  photo_required INTEGER DEFAULT 1
+);
+
+-- 外委维保商按整改单号报送的维保回执（整单）
+CREATE TABLE IF NOT EXISTS maintenance_receipt (
+  id INTEGER PRIMARY KEY,
+  hazard_ticket_id INTEGER,
+  vendor_id TEXT,
+  vendor_name TEXT,
+  paper_receipt_no TEXT,
+  submit_status TEXT,
+  reconcile_status TEXT,
+  qualified_component_count INTEGER DEFAULT 0,
+  mismatch_details TEXT,
+  delivery_error TEXT,
+  submitted_at TEXT,
+  retried_at TEXT,
+  reviewed_by TEXT,
+  reviewed_note TEXT,
+  confirmed_at TEXT
+);
+
+-- 回执上的更换部件与照片，逐条与隐患条目匹配
+CREATE TABLE IF NOT EXISTS receipt_component (
+  id INTEGER PRIMARY KEY,
+  maintenance_receipt_id INTEGER,
+  item_code TEXT,
+  part_name TEXT,
+  quantity INTEGER DEFAULT 1,
+  photo_url TEXT,
+  matched INTEGER DEFAULT 0,
+  mismatch_reason TEXT
 );
 
 CREATE TABLE IF NOT EXISTS audit_log (

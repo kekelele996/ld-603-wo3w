@@ -9,7 +9,8 @@ LOG_TEMPLATES = {
     "FireDevice.create",
     "FireDevice.update",
     "FireDevice.status",
-    "FireDevice.export"
+    "FireDevice.export",
+    "FireDevice.writeback_qualified_components"
   ],
   "InspectionTask": [
     "InspectionTask.create",
@@ -27,6 +28,17 @@ LOG_TEMPLATES = {
     "HazardTicket.create",
     "HazardTicket.update",
     "HazardTicket.status",
-    "HazardTicket.export"
+    "HazardTicket.export",
+    "HazardTicket.close_blocked_before_confirm",
+    "HazardTicket.close_after_confirm"
+  ],
+  "MaintenanceReceipt": [
+    "MaintenanceReceipt.report",
+    "MaintenanceReceipt.submit_failed",
+    "MaintenanceReceipt.retry",
+    "MaintenanceReceipt.match",
+    "MaintenanceReceipt.queue_mismatch",
+    "MaintenanceReceipt.supervisor_confirm",
+    "MaintenanceReceipt.supervisor_reject"
   ]
 }

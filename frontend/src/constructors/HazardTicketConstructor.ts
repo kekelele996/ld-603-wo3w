@@ -6,9 +6,11 @@ export const createDefaultHazardTicket = (overrides: Partial<HazardTicket> = {})
   severity: "severity 1" as never,
   owner_id: 1 as never,
   deadline: "deadline 1" as never,
-  rectify_status: "IN_PROGRESS" as never,
-  rectify_note: "rectify note 1" as never,
-  closed_at: "2026-06-11T09:00:00Z" as never,
+  rectify_status: "OPEN" as never,
+  rectify_note: "" as never,
+  closed_at: "" as never,
+  registered_items: [],
+  last_receipt_id: null,
   ...overrides
 });
 

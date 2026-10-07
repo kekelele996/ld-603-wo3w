@@ -1,3 +1,4 @@
+import { apiRequest } from "./client";
 import { mockData } from "../mocks/seedData";
 import type { HazardTicket } from "../types/HazardTicket";
 
@@ -18,4 +19,9 @@ export async function listHazardTicket(): Promise<HazardTicket[]> {
 export async function saveHazardTicket(payload: HazardTicket) {
   console.info("save HazardTicket", payload);
   return payload;
+}
+
+// 确认前不关单：后端在回执未确认通过时会拦截关闭
+export async function closeHazardTicket(ticketId: number): Promise<HazardTicket> {
+  return apiRequest<HazardTicket>(`${endpoint}/${ticketId}/close`, { method: "POST" });
 }

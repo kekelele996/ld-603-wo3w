@@ -4,9 +4,10 @@ import { routes } from "./router/routes";
 import { mockData } from "./mocks/seedData";
 import { StatusBadge } from "./components/common/StatusBadge";
 import { StatCard } from "./components/common/StatCard";
+import { ReconcilePage } from "./pages/ReconcilePage";
 import "./styles.css";
 
-function Page({ name }: { name: string }) {
+function DashboardPage({ name }: { name: string }) {
   const entities = Object.entries(mockData);
   const total = useMemo(() => entities.reduce((sum, [, rows]) => sum + rows.length, 0), [entities]);
   return <main className="page">
@@ -20,7 +21,7 @@ function Page({ name }: { name: string }) {
     <section className="metrics">
       <StatCard label="核心模型" value={entities.length} />
       <StatCard label="本地记录" value={total} />
-      <StatCard label="共享枚举" value={3} />
+      <StatCard label="共享枚举" value={7} />
     </section>
     <section className="workbench">
       <div className="panel wide">
@@ -34,6 +35,7 @@ function Page({ name }: { name: string }) {
       <div className="panel">
         <h2>联动检查</h2>
         <p>页面、store、API、构造器、日志模板和枚举常量均按提示词拆分，适合评审跨文件修改能力。</p>
+        <p>维保回执对账（/reconcile）覆盖整单报送、整单重试、部件照片匹配、对账队列、主管复核与合格部件数回写设备档案。</p>
       </div>
     </section>
   </main>;
@@ -47,7 +49,9 @@ function App() {
       <div className="brand">消防设施巡检维保平台</div>
       <nav>{routes.map((route) => <button key={route.route} className={active === route.route ? "active" : ""} onClick={() => setActive(route.route)}>{route.name}</button>)}</nav>
     </aside>
-    <Page name={current?.name ?? "工作台"} />
+    {current?.route === "/reconcile"
+      ? <ReconcilePage />
+      : <DashboardPage name={current?.name ?? "工作台"} />}
   </div>;
 }
 

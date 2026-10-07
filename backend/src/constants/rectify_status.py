@@ -1,0 +1,1 @@
+RectifyStatus = ["OPEN", "RECEIPT_MATCHED", "RECONCILE_PENDING", "CLOSED"]
